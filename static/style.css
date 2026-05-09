@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(180deg, #f3f7fb 0%, #e8edf4 100%);
+    color: #1f2937;
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px 40px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #555;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 20px 60px rgba(31, 41, 55, 0.08);
+}
+
+textarea {
+    width: 100%;
+    min-height: 140px;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 1rem;
+    resize: vertical;
+}
+
+button {
+    margin-top: 16px;
+    padding: 14px 22px;
+    border: none;
+    border-radius: 999px;
+    background: #2563eb;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+button:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+.message {
+    margin-top: 12px;
+    color: #b91c1c;
+}
+
+.result-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.history-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.history-list li {
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: #f8fafc;
+    margin-bottom: 10px;
+    border: 1px solid #e2e8f0;
+}
+
+.metrics-card p {
+    margin: 0 0 18px;
+}
+
+.confusion-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(130px, 1fr));
+    gap: 12px;
+}
+
+.confusion-grid div {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+@media (max-width: 640px) {
+    .confusion-grid {
+        grid-template-columns: 1fr;
+    }
+}

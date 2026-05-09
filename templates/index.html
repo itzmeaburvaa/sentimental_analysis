@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sentiment Analysis App</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Sentiment Analysis</h1>
+        <p class="subtitle">Enter text and get a sentiment prediction with confidence.</p>
+
+        <div class="card">
+            <textarea id="userText" placeholder="Type your text here..."></textarea>
+            <button id="analyzeButton">Analyze Sentiment</button>
+            <div id="message" class="message"></div>
+        </div>
+
+        <div id="resultCard" class="card hidden">
+            <h2>Result</h2>
+            <div class="result-row">
+                <span>Sentiment:</span>
+                <strong id="sentimentLabel"></strong>
+            </div>
+            <div class="result-row">
+                <span>Confidence:</span>
+                <strong id="confidenceLabel"></strong>
+            </div>
+            <canvas id="confidenceChart" width="400" height="240"></canvas>
+        </div>
+
+        <div class="card">
+            <h2>History</h2>
+            <ul id="historyList" class="history-list"></ul>
+        </div>
+
+        <div class="card metrics-card">
+            <h2>Sample Model Evaluation</h2>
+            <p>Accuracy on sample data: <strong id="accuracyValue">{{ sample_accuracy }}%</strong></p>
+            <div class="confusion-grid">
+                <div><strong>Predicted positive:</strong> {{ confusion_matrix["positive"] }}</div>
+                <div><strong>Predicted negative:</strong> {{ confusion_matrix["negative"] }}</div>
+                <div><strong>Predicted neutral:</strong> {{ confusion_matrix["neutral"] }}</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const sampleAccuracy = {{ sample_accuracy }};
+        const sampleConfusion = {
+            positive: {{ confusion_matrix["positive"] }},
+            negative: {{ confusion_matrix["negative"] }},
+            neutral: {{ confusion_matrix["neutral"] }},
+        };
+    </script>
+    <script src="/static/script.js"></script>
+</body>
+</html>
